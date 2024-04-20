@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Scroll animation</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+</head>
+
+<body>
+    <div class="container-full pt-5 vh-100 text-center " >
+        <h1 class="">Scroll Down to see the animation</h1>
+        <a href="./index.html#container-full" class="btn btn-dark rounded-circle d-flex justify-content-center align-items-center "><i class="fa-solid fa-arrow-down"></i></a>
+    </div>
+
+
+    <div class="container-full" id="container-full">
+
+        <div class="box1">
+            <img src="https://source.unsplash.com/random/300x200/?nature" alt="img">
+        </div>
+
+        <div class="box2">
+            <p>
+                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sed minima
+                tenetur consectetur ea hic est animi dolor cum molestiae maiores officia nihil delectus, eos repellat!
+                Excepturi quidem provident qui deleniti tenetur. Consectetur exercitationem, fugiat hic at reprehenderit
+                saepe quos?
+            </p>
+            <button class="btn btn-outline-success">Hello!!</button>
+        </div>
+    </div>
+
+    <body>
+        <div class="container-full">
+            <div class="box2">
+                <p>
+                    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sed
+                    minima
+                    tenetur consectetur ea hic est animi dolor cum molestiae maiores officia nihil delectus, eos
+                    repellat!
+                    Excepturi quidem provident qui deleniti tenetur. Consectetur exercitationem, fugiat hic at
+                    reprehenderit
+                    saepe quos?
+                </p>
+                <button class="btn btn-outline-success">Hello!!</button>
+            </div>
+
+            <div class="box1">
+                <img src="https://source.unsplash.com/random/300x200/?hongkong" alt="img">
+            </div>
+
+        </div>
+
+
+        <body>
+            <div class="container-full">
+
+                <div class="box1">
+                    <img src="https://source.unsplash.com/random/300x200/?japan" alt="img">
+                </div>
+
+                <div class="box2">
+                    <p>
+                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sed
+                        minima
+                        tenetur consectetur ea hic est animi dolor cum molestiae maiores officia nihil delectus, eos
+                        repellat!
+                        Excepturi quidem provident qui deleniti tenetur. Consectetur exercitationem, fugiat hic at
+                        reprehenderit
+                        saepe quos?
+                    </p>
+                    <button class="btn btn-outline-success">Hello!!</button>
+                </div>
+            </div>
+
+
+            <script>
+                let thresholdValue = .5; //the how much threshold value you have to in your element
+
+                const selectAllImages = document.querySelectorAll(".box1 img")
+
+
+                const observerSect = new IntersectionObserver(function (entities) {
+
+                    entities.forEach(function (entry) {
+
+
+                        entry.target.classList.toggle("anima-show-image", entry.isIntersecting);
+
+                        if(entry.isIntersecting){
+                            observerSect.unobserve(entry.target)
+                        };
+                    });
+
+
+                }, {threshold: thresholdValue});
+
+                selectAllImages.forEach(function (imageCollection) {
+
+                    observerSect.observe(imageCollection);
+                });
+
+
+
+
+
+            </script>
+        </body>
+
+</html>
